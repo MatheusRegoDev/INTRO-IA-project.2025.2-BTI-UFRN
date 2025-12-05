@@ -1,23 +1,33 @@
-from azuleijos import ALL_COLORS
+# saco.py
 import random
+from azuleijos import gerar_todos_azulejos
 
-class SacoAzuleijos:
+class Saco:
     def __init__(self):
-        ''' Gera os vintes azuleijos de cada cor de forma aleatória'''
-        self.azuleijos = []
-        for cor in ALL_COLORS:
-            self.azuleijos.extend([cor] * 20)
-        random.shuffle(self.azuleijos)
-        self.pilha_descarte = []
+        self.azulejos = gerar_todos_azulejos()
+        self.descarte = []
 
-    def sacar_azuleijos(self, n_azuleijos):
-        if len(self.azuleijos) < n_azuleijos:
-            self.refil = ()
-        saque_azuleijos = [self.azuleijos.pop() for _ in range(n_azuleijos)]
-        return saque_azuleijos
-    
-    def refil(self):
-        if self.pilha_descarte:
-            self.azuleijos = self.pilha_descarte[:]
-            random.shuffle(self.azuleijos)
-            self.pilha_descarte = []
+    def embaralhar(self):
+        random.shuffle(self.azulejos)
+
+    def puxar(self, n):
+        """
+        Puxa até n azulejos do saco. Reabastece do descarte se necessário.
+        Retorna lista de azulejos (pode ser menos se não houver mais peças).
+        """
+        resultado = []
+        while len(resultado) < n:
+            if not self.azulejos:
+                # Repor do descarte
+                self.azulejos = self.descarte
+                self.descarte = []
+                random.shuffle(self.azulejos)
+                if not self.azulejos:
+                    break
+            pegar = min(n - len(resultado), len(self.azulejos))
+            resultado += self.azulejos[:pegar]
+            self.azulejos = self.azulejos[pegar:]
+        return resultado
+
+    def descartar(self, azulejos):
+        self.descarte += azulejos
