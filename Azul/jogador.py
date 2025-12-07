@@ -1,7 +1,7 @@
 # jogador.py
 from tabuleiro import Tabuleiro
 import random
-from azuleijos import CorAzulejo
+from azulejos import CorAzulejo
 import interface as view  # para renderizar assistência ao jogador (entrada/mostra)
 
 class Jogador:

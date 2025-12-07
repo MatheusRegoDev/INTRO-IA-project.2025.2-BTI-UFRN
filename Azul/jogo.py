@@ -3,7 +3,7 @@ from expositores import Expositor
 from centro import CentroMesa
 from saco import Saco
 from jogador import Jogador
-from azuleijos import ALL_COLORS
+from azulejos import ALL_COLORS
 import interface as view
 
 class Jogo:

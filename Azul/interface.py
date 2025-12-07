@@ -2,7 +2,7 @@
 # Funções de visualização para o jogo Azul no terminal usando blocos ANSI.
 
 import os
-from azuleijos import CorAzulejo
+from azulejos import CorAzulejo
 
 RESET = "\033[0m"
 # colors: background blocks with two spaces

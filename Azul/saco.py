@@ -1,6 +1,6 @@
 # saco.py
 import random
-from azuleijos import gerar_todos_azulejos
+from azulejos import gerar_todos_azulejos
 
 class Saco:
     def __init__(self):

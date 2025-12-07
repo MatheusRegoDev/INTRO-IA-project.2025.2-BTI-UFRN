@@ -1,5 +1,5 @@
 # tabuleiro.py
-from azuleijos import CorAzulejo
+from azulejos import CorAzulejo
 
 FLOOR_PENALTIES = [-1, -1, -2, -2, -2, -3, -3]  # penalidades do piso (máx 7 posições)
 
